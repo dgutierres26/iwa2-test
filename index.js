@@ -8,11 +8,13 @@ bodyParser = require('body-parse');
 var app = express();
 var port = 8000;
 
-app.get('/hello', (req, res) => {
-
-    res.send("Hello BScBest!");
-    
+app.get('/hello/:foo/:bar', (req, res) => {
+    res.json({message: 'Hello BScBest!', data: [
+        req.params.foo,
+        req.params.bar
+    ]});
 });
+
 
 
 // http.createServer((req, res)=>{
