@@ -10,22 +10,12 @@ var port = 8000;
 
 app.use(bodyParser.json())
 app.use(logger('tiny'));
+app.use(require('./routes'));
 
-
-app.get('/hello/:foo/:bar', (req, res) => {
-    res.json({message: 'Hello BScBest!', data: [
-        req.params.foo,
-        req.params.bar
-    ]});
-});
-
-app.post('/hello', (req, res) => {
-    res.json({result: 'Post was sent', data: req.body});
-});
 
 // http.createServer((req, res)=>{
-//   res.write(users.join(", ")); //display the list of users on the page
-// //   res.write("\n\n"+emails.join(", ")); //display the list of users on the page
+//   res.write(users.join(", ")); display the list of users on the page
+//   res.write("\n\n"+emails.join(", ")); display the list of users on the page
 //   res.end(); //end the response
 // }).listen(8000); // listen for requests on port 8000
 
