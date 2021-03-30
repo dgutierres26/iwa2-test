@@ -13,7 +13,16 @@ exports.createUser = function(req, res) {
 
 
 exports.getUser = function(req, res) {
-  User.findOne({_id: req.params.id}, function (err, users) {
+  User.findOne({_id: req.params.id}, req.body, {new: true}, function (err, users) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(users);
+  }); 
+};
+
+exports.deleteUser = function(req, res) {
+  User.findByIdAndRemove({_id: req.params.id}, req.body, {new: true}, function (err, users) {
     if (err) {
       res.status(400).json(err); 
     } 
