@@ -36,6 +36,10 @@ app.use(require('./routes'));
 // })();
 
 
+app.listen(port,function(err){
+    console.log('Listening on ports: ' + port);
+})
+
 const dbURI = "mongodb://localhost/test";
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
